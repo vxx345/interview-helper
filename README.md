@@ -1,59 +1,91 @@
-# interview-helper
+# 🎯 interview-helper · 大厂后端 & AI Agent 面试答题教练
 
-大厂后端与 AI Agent 方向面试题的**标准化答题教练** Skill，可用于 WorkBuddy / CodeBuddy 等支持 Skill 的 AI 编程助手。
+> 把任意一道面试题，加工成**怎么想 + 说什么 + 怎么说**三件套——不是给你背的答案，而是让你真懂、能开口、扛得住深挖的标准化答题教练。
 
-把任意一道面试题，加工成三件东西：
+一份面向**大厂后端（Java/JVM/并发/MySQL/Redis/Kafka/Spring/分布式/网络）**与 **AI Agent 工程（RAG/MCP/Multi-Agent/上下文工程/Function Calling）** 方向面试题的 Skill。它扮演一位有 10 年经验的大厂技术面试官（阿里 P8 / 字节 2-2 量级）兼金牌辅导专家，把每一道题打磨成可复用、可迭代的答题资产。
 
-- **怎么想**（思路脚手架 / CoT 推理链）
-- **说什么**（大厂标准答案，分层深答）
-- **怎么说**（能直接开口念的口述稿）
+---
 
-## 核心能力
+## 为什么它不一样（Differentiators）
 
-- **题型判定**：先判断要不要绑项目（客观题纯通用回答，禁止硬挂项目），再决定打多深。
-- **深度分级**：`[简答] / [标准] / [深挖] / [深潜]` 四档，最高档对标大厂面委级深度（六维分层、论文级引用、量化对比、生产实践、升华总结）。
-- **交互模式**：`练:`（教练模式，引导思考）、`mock:`（模拟面试）、`拷打:`（高压追问复盘）。
-- **覆盖方向**：
-  - 后端：Java / JVM / 并发 / MySQL / Redis / Kafka / Spring / 分布式 / 网络
-  - Agent：RAG / MCP / Multi-Agent / 上下文工程 / Function Calling / 工具调用容错
+市面上的「面试 skill」大多只做两件事：出模拟题、给一个标准答案。本 skill 的差异化在于**把"答到什么深度、怎么组织、怎么开口"也标准化了**：
+
+| 差异化点 | 说明 |
+|---|---|
+| 🧭 **题型判定优先** | 先判定"要不要绑项目"。客观/原理题**纯通用回答、禁止硬挂项目**；只有 Agent 后端工程题才结合真实项目。避免"客观题答非所问 + 稀释专业度"。 |
+| 🪜 **四档深度分级** | `[简答] / [标准] / [深挖] / [深潜]`。最高档"深潜"对标大厂面委级深度：**六维分层 + 论文级引用 + 量化对比表 + 生产实践 + 架构权衡 + 升华总结**。 |
+| 🛠️ **Agent 后端工程视角** | 不是泛泛而谈，而是打到工程实现层：编排状态机、工具层、失败分类、上下文预算、并发幂等、可观测评测、安全越权、成本延迟。 |
+| 🎤 **口述稿即拿即念** | 每份答案都附"记忆卡 + 逐字稿"，把结构化答案翻译成能直接开口念的话，解决"懂但不会说"。 |
+| 🔁 **三种交互模式** | `练:`（教练引导）· `mock:`（模拟面试）· `拷打:`（高压追问复盘），覆盖从入门到终面的全链路。 |
+
+---
+
+## 它能产出什么
+
+对任意一道题，固定输出这条链路：
+
+```
+📋 题型判定 → 💭 CoT 推理链（9 步）→ 🎯 一句话结论
+→ 🧭 思路引导（论点骨架）→ 🏗️ 分层深答
+→ 🪝 追问链（附答案要点）→ 🎤 口述稿（记忆卡 + 逐字稿）
+```
+
+底层原则（与顶级面试 skill 一致）：**讲原理和设计权衡，不堆名词；带真实的坑 / 优化 / 数据；结论先行 → 分层论述 → 案例佐证 → 总结升华；答到机制层与边界层，绝不停在"是什么"。**
+
+---
+
+## 快速开始
+
+在对话里直接抛题即可，无需任何初始化：
+
+- `帮我答一下：MySQL 为什么用 B+ 树而不是 B 树？`（默认标准档）
+- `深潜: 讲讲 Redis 缓存与数据库一致性` （指定最高档）
+- `mock: 来一道 Kafka 消费幂等的题` （模拟面试模式）
+- `拷打: 我刚讲的是 RAG，你追问我` （高压追问复盘）
+
+---
 
 ## 目录结构
 
 ```
 interview-helper/
-├── SKILL.md                      # 技能主入口与执行流程
-└── references/                   # 分主题参考资料
-    ├── agent-backend-engineering.md
-    ├── agent-interview-points.md
-    ├── answer-frameworks.md
-    ├── backend-interview-points.md
-    ├── deep-dive-framework.md
-    ├── reverse-qa.md
-    └── spoken-script-craft.md
+├── SKILL.md                        # 技能主入口与执行流程
+└── references/                     # 分主题参考资料
+    ├── agent-backend-engineering.md # Agent 后端工程题答题要点
+    ├── agent-interview-points.md    # Agent 方向高频考点
+    ├── answer-frameworks.md         # 答题框架与结构模板
+    ├── backend-interview-points.md  # 后端高频考点
+    ├── deep-dive-framework.md       # 深潜档六维分层模板
+    ├── reverse-qa.md                # 反向提问 / 自我介绍钩子
+    └── spoken-script-craft.md       # 口述稿撰写方法
 ```
+
+---
 
 ## 安装方式
 
-将本仓库拷贝到 Skill 目录后，助手即可在对话中自动匹配并加载：
+把本仓库拷到 Skill 目录，助手即可在对话中自动匹配加载：
 
 - **用户级**（所有项目可用）：`~/.workbuddy/skills/interview-helper/`
 - **项目级**（仅当前项目）：`<你的项目>/.workbuddy/skills/interview-helper/`
 
 ```bash
-# 以用户级为例
+# 以用户级为例（WorkBuddy / CodeBuddy 通用）
 git clone https://github.com/vxx345/interview-helper.git ~/.workbuddy/skills/interview-helper
 ```
 
-## 使用方式
+> 支持任何以 `SKILL.md` 为入口、能读取 `references/` 的 Agent 环境（WorkBuddy、CodeBuddy、Claude Code、Cursor 等）。
 
-在对话中直接抛出面试题即可，例如：
+---
 
-- `帮我答一下：MySQL 为什么用 B+ 树而不是 B 树？`
-- `mock: 来一道 Redis 缓存击穿的题`
-- `拷打: 我刚讲的是 RAG，你追问我`
+## 诚实声明（必读）
 
-技能会根据题型自动选择「纯通用 / 绑项目」的组织方式，并按你指定的深度档位输出。
+- ❌ **不保证 offer**。本 skill 提升的是"表达专业度与答题深度"，不是替你背下所有八股。
+- ❌ **不编造事实**。答案里的"已核实 / 待降级"会显式标注；缺 golden set、缺生产数据的地方会诚实交代，不会包装成"已落地"。
+- ✅ **不替代练习**。口述稿是骨架，真上场还得你自己念顺。建议配合 `mock:` / `拷打:` 反复迭代。
+
+---
 
 ## 许可证
 
-[MIT](./LICENSE)
+[MIT](./LICENSE) · © 2026 vxx345
